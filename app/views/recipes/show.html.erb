@@ -1,16 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="card mb-4">
-  <div class="card-body">
-    <h2 class="card-title"><%= @recipe.Name %></h2>
-    <p class="card-text"><strong>Ingrédients :</strong> <%= @recipe.ingredient_list %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h1><%= @recipe.Name %></h1>
+      <p><strong>Ingrédients :</strong> <%= @recipe.ingredient_list %></p>
+      <div class="mt-4">
+        <%= link_to "Modifier cette recette", edit_recipe_path(@recipe), class: "btn btn-warning" %>
+        <%= button_to "Supprimer cette recette", @recipe, method: :delete, class: "btn btn-danger", data: { confirm: "Es-tu sûr de vouloir supprimer cette recette ?" } %>
+        <%= link_to "Retour aux recettes", recipes_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h2>Foods associés</h2>
+      <% if @recipe.foods.any? %>
+        <ul class="list-group">
+          <% @recipe.foods.each do |food| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= link_to food.name, food, class: "text-decoration-none" %>
+              <% if food.image.present? %>
+                <img src="<%= food.image %>" alt="<%= food.name %>" class="img-thumbnail" style="max-width: 50px;">
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Aucun plat associé à cette recette.</p>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<div class="d-flex justify-content-between">
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-warning" %>
-  
-  <%= button_to "Destroy this recipe", @recipe, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this recipe?" } %>
-
-  <%= link_to "Back to recipes", recipes_path, class: "btn btn-secondary" %>
 </div>
