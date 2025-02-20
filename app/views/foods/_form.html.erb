@@ -1,17 +1,41 @@
+<% content_for :title, "New food" %>
 
-<%= simple_form_for(@food) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Créer un nouveau plat</h1>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.association :game %>
-    <%= f.input :image %>
-    <%= f.input :description %>
-    <%= f.association :recipe %>
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(@food) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+        <div class="row">
+          <!-- Colonne de gauche : Titre, Cover et Jeu -->
+          <div class="col-md-6">
+            <div class="form-inputs">
+              <%= f.input :name, label: "Nom du plat", input_html: { class: "form-control" } %>
+              <%= f.input :image, label: "Image du plat", input_html: { class: "form-control" } %>
+              <%= f.association :game, label: "Jeu", input_html: { class: "form-control" } %>
+            </div>
+          </div>
+
+          <!-- Colonne de droite : Description -->
+          <div class="col-md-6">
+            <div class="form-inputs">
+              <%= f.input :description, label: "Description", as: :text, input_html: { class: "form-control", rows: 5 } %>
+              <%= f.association :recipe, label: "Recette", input_html: { class: "form-control" } %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions text-center mt-4">
+          <%= f.button :submit, "Créer le plat", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="text-center mt-4">
+    <%= link_to "Retour aux plats", foods_path, class: "btn btn-secondary" %>
   </div>
-<% end %>
+</div>
