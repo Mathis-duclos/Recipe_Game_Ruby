@@ -19,9 +19,9 @@
             <p class="card-text"><%= game.description %></p>
             <!-- Affichage du nombre de plats -->
             <p class="card-text"><strong>Plats associés :</strong> <%= game.foods.count %></p>
-            <%= link_to "Show this game", game, class: "btn btn-primary" %>
+            <%= link_to "Liste des plats", game, class: "btn btn-primary" %>
             <!-- Bouton Edit -->
-            <%= link_to "Edit", edit_game_path(game), class: "btn btn-warning ml-2" %>
+            <%= link_to "Modifier", edit_game_path(game), class: "btn btn-warning ml-2" %>
           </div>
         </div>
       </div>

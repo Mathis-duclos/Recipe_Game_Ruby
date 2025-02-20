@@ -1,11 +1,15 @@
-<% content_for :title, "New game" %>
+<% content_for :title, "Ajout d'un jeu" %>
 
-<h1>New game</h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Ajouter un jeu</h1>
 
-<%= render "form", game: @game %>
+  <div class="card">
+    <div class="card-body">
+      <%= render "form", game: @game %>
+    </div>
+  </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to games", games_path %>
+  <div class="text-center mt-4">
+    <%= link_to "Back to games", games_path, class: "btn btn-secondary" %>
+  </div>
 </div>
