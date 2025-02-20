@@ -1,16 +1,13 @@
-<%= simple_form_for(@food) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<p style="color: green"><%= notice %></p>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.association :game, collection: Game.all, label_method: :name, value_method: :id, include_blank: false %>
-    <%= f.input :image %>
-    <%= f.input :description %>
-    <%= f.association :recipe, collection: Recipe.all, label_method: :name, value_method: :id, include_blank: false %>
-  </div>
+<%= render @game %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<div>
+  <%= link_to "Edit this game", edit_game_path(@game) %> |
+  <%= link_to "Back to games", games_path %>
+
+  <%= button_to "Destroy this game", @game, method: :delete %>
+  
+</div>
+
+RUBY 
