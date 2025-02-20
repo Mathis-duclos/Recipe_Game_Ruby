@@ -1,15 +1,29 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, @food.name %>
 
-<%= render @food %>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Détails du plat : <%= @food.name %></h1>
 
-<p>
-  <strong>Game:</strong>
-  <%= link_to @food.game.title, @food.game %>
-</p>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <img src="<%= @food.image %>" class="card-img-top" alt="<%= @food.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= @food.name %></h5>
+          <p class="card-text"><%= @food.description %></p>
+        </div>
+      </div>
+    </div>
 
-<div>
-  <%= link_to "Edit this food", edit_food_path(@food) %> |
-  <%= link_to "Back to foods", foods_path %>
+    <div class="col-md-6">
+      <h4><strong>Jeu :</strong></h4>
+      <p><%= link_to @food.game.title, @food.game %></p>
 
-  <%= button_to "Destroy this food", @food, method: :delete %>
+      <div class="mt-4">
+        <%= link_to "Modifier ce plat", edit_food_path(@food), class: "btn btn-warning" %> 
+        <%= link_to "Retour aux plats", foods_path, class: "btn btn-secondary" %>
+
+        <%= button_to "Supprimer ce plat", @food, method: :delete, class: "btn btn-danger mt-2" %>
+      </div>
+    </div>
+  </div>
 </div>
