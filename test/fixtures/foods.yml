@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  game: one
+  image: MyString
+  description: MyText
+  recipe: one
+
+two:
+  name: MyString
+  game: two
+  image: MyString
+  description: MyText
+  recipe: two
