@@ -1,7 +1,11 @@
-<% content_for :title, "Créer une recette" %>
+<% content_for :title, "New recipe" %>
 
-<h1 class="text-center mb-4">Créer une nouvelle recette</h1>
+<h1>New recipe</h1>
 
-<div class="container">
-  <%= render "form", recipe: @recipe %>
+<%= render "form", recipe: @recipe %>
+
+<br>
+
+<div>
+  <%= link_to "Back to recipes", recipes_path %>
 </div>

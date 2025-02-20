@@ -1,17 +1,10 @@
-<% content_for :title, @recipe.Name %>
+<p style="color: green"><%= notice %></p>
 
-<h1 class="text-center mb-4"><%= @recipe.Name %></h1>
+<%= render @recipe %>
 
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Ingrédients</h5>
-      <p class="card-text"><%= @recipe.ingredient_list %></p>
+<div>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
+  <%= link_to "Back to recipes", recipes_path %>
 
-      <div class="text-center mt-4">
-        <%= link_to "Éditer cette recette", edit_recipe_path(@recipe), class: "btn btn-primary" %> 
-        <%= link_to "Retour aux recettes", recipes_path, class: "btn btn-secondary" %>
-      </div>
-    </div>
-  </div>
+  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>
