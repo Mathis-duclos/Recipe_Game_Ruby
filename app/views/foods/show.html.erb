@@ -2,6 +2,11 @@
 
 <%= render @food %>
 
+<p>
+  <strong>Game:</strong>
+  <%= link_to @food.game.title, @food.game %>
+</p>
+
 <div>
   <%= link_to "Edit this food", edit_food_path(@food) %> |
   <%= link_to "Back to foods", foods_path %>
