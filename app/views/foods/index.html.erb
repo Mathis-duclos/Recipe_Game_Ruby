@@ -2,15 +2,26 @@
 
 <% content_for :title, "Foods" %>
 
+<div class="text-center">
 <h1>Foods</h1>
-
-<div id="foods">
-  <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
-  <% end %>
+</br>
+  <%= link_to "Ajouter un délicieux met", new_food_path, class: "btn btn-success" %>
 </div>
-
-<%= link_to "New food", new_food_path, class: "btn btn-success btn-lg" %>
+<br>
+<div class="container">
+  <div class="row">
+    <% @foods.each do |food| %>
+      <div class="col-sm-6 col-md-4 col-lg-2 mb-4"> <!-- il y a 12 colonnes sur un écran, les cartes utilisent 6 4 ou 2 col, suivant si l écran est petit moyen ou grand -->
+        <div class="card">
+          <img src="<%= food.image %>" class="card-img-top" alt="<%= food.name %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= food.name %></h5>
+            <p class="card-text"><%= food.description %></p>
+            <p class="card-text"><strong>Game:</strong> <%= food.game.title %></p>
+            <%= link_to "Show this food", food, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
