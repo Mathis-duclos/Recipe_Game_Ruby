@@ -1,43 +1,41 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @game %>
+<div class="container">
+  <div class="row">
+    <!-- Colonne gauche : Liste des plats -->
+    <div class="col-md-6">
+      <h2>Plats trouvés dans ce jeu</h2>
+      
+      <% if @game.foods.any? %> 
+        <ul>
+          <% @game.foods.each do |food| %>
+            <li>
+              <%= link_to food.name, food %> - <%= food.description %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>Aucun plat répertorié pour ce jeu.</p>
+      <% end %>
+    </div>
 
-<div>
-  <%= link_to "Edit this game", edit_game_path(@game) %> |
-  <%= link_to "Back to games", games_path %>
+    <!-- Colonne droite : Détails -->
+    <div class="col-md-6">
+      <h2><%= @game.title %></h2>
+      <p><strong>Game Cover:</strong></p>
+      <img src="<%= @game.cover %>" alt="<%= @game.title %>" class="img-fluid mb-3">
+      <p><strong>Description:</strong> <%= @game.description %></p>
+      <p><strong>Release Year:</strong> <%= @game.release_year %></p>
+    </div>
+  </div>
 
-  <%= button_to "Destroy this game", @game, method: :delete %>
-  
-</div>
+  <!-- Boutons pour supprimer le truc ou le modifier -->
 
-RUBY 
-
-<p style="color: green"><%= notice %></p>
-
-<%= render @game %>
-
-<p>bonjour</p>
-
-<h2>Plats trouvés dans ce jeu</h2>
-
-# c'est le trucs pour verifier s'il y'a des machins dans la BDD du jeu en question,
-# si c'est oui alors -- > afficher les trucs de ce jeu
-<% if @game.foods.any? %> 
-  <ul>
-    <% @game.foods.each do |food| %>
-      <li>
-        <%= link_to food.name, food %> - <%= food.description %>
-      </li>
-    <% end %>
-  </ul>
-# si c'est non on dit qu'il y a rien pour ce jeu  
-<% else %>
-  <p>Aucun plat répertorié pour ce jeu.</p>
-<% end %>
-
-<div>
-  <%= link_to "Edit this game", edit_game_path(@game) %> |
-  <%= link_to "Back to games", games_path %>
-
-  <%= button_to "Destroy this game", @game, method: :delete %>
+  <div class="mt-5">
+  <hr class="my-4">
+  <div class="d-flex justify-content-center">
+    <%= link_to "Edit this game", edit_game_path(@game), class: "btn btn-warning mx-2" %>
+    <%= link_to "Back to games", games_path, class: "btn btn-secondary mx-2" %>
+    <%= button_to "Destroy this game", @game, method: :delete, class: "btn btn-danger mx-2" %>
+  </div>
 </div>
