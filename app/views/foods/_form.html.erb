@@ -1,0 +1,16 @@
+<%= simple_form_for(@food) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.association :game, collection: Game.all, label_method: :name, value_method: :id, include_blank: false %>
+    <%= f.input :image %>
+    <%= f.input :description %>
+    <%= f.association :recipe, collection: Recipe.all, label_method: :name, value_method: :id, include_blank: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
