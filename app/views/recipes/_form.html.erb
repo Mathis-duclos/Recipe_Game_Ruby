@@ -1,14 +1,36 @@
+<% content_for :title, (@recipe.new_record? ? "Créer une recette" : "Éditer la recette") %>
 
-<%= simple_form_for(@recipe) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= form_with(model: @recipe, local: true) do |form| %>
+  <% if @recipe.errors.any? %>
+    <div class="alert alert-danger">
+      <h4 class="alert-heading">Erreur(s)</h4>
+      <ul>
+        <% @recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :Name %>
-    <%= f.input :ingredient_list %>
-  </div>
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <%= form.label :Name, "Nom de la recette", class: "form-label" %>
+        <%= form.text_field :Name, class: "form-control" %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-group">
+        <%= form.label :ingredient_list, "Liste des ingrédients", class: "form-label" %>
+        <%= form.text_area :ingredient_list, class: "form-control", rows: 4 %>
+      </div>
+
+      <div class="form-group text-center mt-4">
+        <%= form.submit (@recipe.new_record? ? "Créer la recette" : "Mettre à jour la recette"), class: "btn btn-primary" %>
+      </div>
+    </div>
   </div>
 <% end %>
+
+<div class="text-center mt-4">
+  <%= link_to "Retour aux recettes", recipes_path, class: "btn btn-secondary" %>
+</div>

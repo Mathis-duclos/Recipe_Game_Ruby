@@ -1,12 +1,7 @@
-<% content_for :title, "Editing recipe" %>
+<% content_for :title, "Éditer la recette" %>
 
-<h1>Editing recipe</h1>
+<h1 class="text-center mb-4">Éditer la recette</h1>
 
-<%= render "form", recipe: @recipe %>
-
-<br>
-
-<div>
-  <%= link_to "Show this recipe", @recipe %> |
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="container">
+  <%= render "form", recipe: @recipe %>
 </div>

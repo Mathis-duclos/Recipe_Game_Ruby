@@ -1,16 +1,21 @@
-<p style="color: green"><%= notice %></p>
-
 <% content_for :title, "Recipes" %>
 
-<h1>Recipes</h1>
+<h1 class="text-center my-4">Recettes</h1>
 
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
-  <% end %>
+<div class="container">
+  <ul class="list-group">
+    <% @recipes.each do |recipe| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="mb-1"><%= recipe.Name %></h5>
+          <p class="mb-1"><%= recipe.ingredient_list.truncate(100) %></p>
+        </div>
+        <%= link_to "Voir cette recette", recipe, class: "btn btn-primary" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="text-center mt-4">
+    <%= link_to "Créer une nouvelle recette", new_recipe_path, class: "btn btn-success" %>
+  </div>
 </div>
-
-<%= link_to "New recipe", new_recipe_path %>
