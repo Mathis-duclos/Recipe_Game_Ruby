@@ -1,12 +1,46 @@
 <% content_for :title, "Editing food" %>
 
-<h1>Editing food</h1>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Editing Food</h1>
 
-<%= render "form", food: @food %>
+  <div class="card">
+    <div class="card-body">
+      <%= form_with(model: @food, local: true) do |form| %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :name, class: "form-label" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
 
-<br>
+            <div class="form-group">
+              <%= form.label :image, class: "form-label" %>
+              <%= form.text_field :image, class: "form-control" %>
+            </div>
 
-<div>
-  <%= link_to "Show this food", @food %> |
-  <%= link_to "Back to foods", foods_path %>
+            <div class="form-group">
+              <%= form.label :game_id, class: "form-label" %>
+              <%= form.collection_select :game_id, Game.all, :id, :title, { prompt: "Select a Game" }, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :description, class: "form-label" %>
+              <%= form.text_area :description, class: "form-control", rows: 5 %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group text-center mt-4">
+          <%= form.submit "Mettre à jour", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <%= link_to "Annuler la modification", @food, class: "btn btn-secondary" %>
+    <%= link_to "Retourner à la liste", foods_path, class: "btn btn-secondary" %>
+  </div>
 </div>
