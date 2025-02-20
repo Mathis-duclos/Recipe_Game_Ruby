@@ -6,8 +6,8 @@
 
 <h2>Plats trouvés dans ce jeu</h2>
 
-<%# c est le trucs pour verifier s il y a des elts dans la BDD du jeu en question %>
-<%# si c est oui alors -- > afficher les trucs de ce jeu %>
+<%# c'est le trucs pour verifier s'il y'a des elts dans la BDD du jeu en question,%>
+<%# si c'est oui alors -- > afficher les trucs de ce jeu%>
 
 <% if @game.foods.any? %> 
   <ul>
@@ -17,7 +17,7 @@
       </li>
     <% end %>
   </ul>
-# si c est non on dit qu il n y a rien pour ce jeu  
+# si c'est non on dit qu'il y a rien pour ce jeu  
 <% else %>
   <p>Aucun plat répertorié pour ce jeu.</p>
 <% end %>
