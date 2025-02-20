@@ -2,15 +2,21 @@
 
 <% content_for :title, "Recipes" %>
 
-<h1>Recipes</h1>
-
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
-  <% end %>
+<div class="text-center mb-4">
+  <h1>Recipes</h1>
+  <%= link_to "New Recipe", new_recipe_path, class: "btn btn-success mt-2" %>
 </div>
 
-<%= link_to "New recipe", new_recipe_path %>
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= recipe.Name %></h5>
+          <p class="card-text"><%= recipe.ingredient_list.truncate(100) %></p>
+          <%= link_to "Show this recipe", recipe, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
