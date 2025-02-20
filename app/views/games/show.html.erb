@@ -2,26 +2,13 @@
 
 <%= render @game %>
 
-<div>
-  <%= link_to "Edit this game", edit_game_path(@game) %> |
-  <%= link_to "Back to games", games_path %>
-
-  <%= button_to "Destroy this game", @game, method: :delete %>
-  
-</div>
-
-RUBY 
-
-<p style="color: green"><%= notice %></p>
-
-<%= render @game %>
-
 <p>bonjour</p>
 
 <h2>Plats trouvés dans ce jeu</h2>
 
-# c'est le trucs pour verifier s'il y'a des machins dans la BDD du jeu en question,
-# si c'est oui alors -- > afficher les trucs de ce jeu
+<%# c'est le trucs pour verifier s'il y'a des elts dans la BDD du jeu en question,%>
+<%# si c'est oui alors -- > afficher les trucs de ce jeu%>
+
 <% if @game.foods.any? %> 
   <ul>
     <% @game.foods.each do |food| %>
