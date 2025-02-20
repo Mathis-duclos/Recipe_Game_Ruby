@@ -1,12 +1,33 @@
 <% content_for :title, "Editing game" %>
 
-<h1>Editing game</h1>
-
-<%= render "form", game: @game %>
-
-<br>
-
-<div>
-  <%= link_to "Show this game", @game %> |
-  <%= link_to "Back to games", games_path %>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Modifier le jeu</h1>
+  <div class="card">
+    <div class="card-body">
+      <%= simple_form_for(@game) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-inputs">
+              <%= f.input :title, label: "Titre du jeu", input_html: { class: "form-control" } %>
+              <%= f.input :cover, label: "Image du jeu", input_html: { class: "form-control" } %>
+              <%= f.input :release_year, label: "Année de sortie", input_html: { class: "form-control", type: "number" } %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-inputs">
+              <%= f.input :description, label: "Description", as: :text, input_html: { class: "form-control", rows: 5 } %>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions text-center mt-4">
+          <%= f.button :submit, "Mettre à jour le jeu", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="text-center mt-4">
+  <%= link_to "Retour aux jeux", games_path, class: "btn btn-secondary" %>
+  </div>
 </div>
