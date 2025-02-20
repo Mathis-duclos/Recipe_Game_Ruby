@@ -2,15 +2,29 @@
 
 <% content_for :title, "Games" %>
 
+<div class="text-center">
 <h1>Games</h1>
-
-<div id="games">
-  <% @games.each do |game| %>
-    <%= render game %>
-    <p>
-      <%= link_to "Show this game", game %>
-    </p>
-  <% end %>
+<br>
+  <%= link_to "Ajouter un nouveau jeu", new_game_path, class: "btn btn-success" %>
 </div>
-
-<%= link_to "New game", new_game_path %>
+<br>
+<div class="container">
+  <div class="row">
+    <% @games.each do |game| %>
+      <div class="col-sm-6 col-md-4 col-lg-4 mb-4">
+        <div class="card">
+          <img src="<%= game.cover %>" class="card-img-top" alt="<%= game.title %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= game.title %></h5>
+            <p class="card-text"><%= game.description %></p>
+            <!-- Affichage du nombre de plats -->
+            <p class="card-text"><strong>Plats associés :</strong> <%= game.foods.count %></p>
+            <%= link_to "Show this game", game, class: "btn btn-primary" %>
+            <!-- Bouton Edit -->
+            <%= link_to "Edit", edit_game_path(game), class: "btn btn-warning ml-2" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
