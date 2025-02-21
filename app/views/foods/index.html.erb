@@ -3,7 +3,7 @@
 <% content_for :title, "Foods" %>
 
 <div class="text-center">
-<h1>Foods</h1>
+<h1>Plats</h1>
 </br>
   <%= link_to "Ajouter un délicieux met", new_food_path, class: "btn btn-success" %>
 </div>
@@ -18,7 +18,7 @@
             <h5 class="card-title"><%= food.name %></h5>
             <p class="card-text"><%= food.description %></p>
             <p class="card-text"><strong>Game:</strong> <%= food.game.title %></p>
-            <%= link_to "Show this food", food, class: "btn btn-primary" %>
+            <%= link_to "Voir ce plat", food, class: "btn btn-primary" %>
           </div>
         </div>
       </div>

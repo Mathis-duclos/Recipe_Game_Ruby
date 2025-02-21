@@ -3,8 +3,8 @@
 <% content_for :title, "Recipes" %>
 
 <div class="text-center mb-4">
-  <h1>Recipes</h1>
-  <%= link_to "New Recipe", new_recipe_path, class: "btn btn-success mt-2" %>
+  <h1>Recettes</h1>
+  <%= link_to "Nouvel ensemble de recettes", new_recipe_path, class: "btn btn-success mt-2" %>
 </div>
 
 <div class="row">
@@ -14,7 +14,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= recipe.Name %></h5>
           <p class="card-text"><%= recipe.ingredient_list.truncate(100) %></p>
-          <%= link_to "Show this recipe", recipe, class: "btn btn-primary" %>
+          <%= link_to "Voir ces recettes", recipe, class: "btn btn-primary" %>
         </div>
       </div>
     </div>

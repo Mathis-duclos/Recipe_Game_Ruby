@@ -9,7 +9,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :name, class: "form-label" %>
+              <%= form.label :name, "Nom", class: "form-label" %>
               <%= form.text_field :name, class: "form-control" %>
             </div>
 
@@ -19,14 +19,14 @@
             </div>
 
             <div class="form-group">
-              <%= form.label :game_id, class: "form-label" %>
+              <%= form.label :game_id, "Jeu d'origine", class: "form-label" %>
               <%= form.collection_select :game_id, Game.all, :id, :title, { prompt: "Select a Game" }, { class: "form-control" } %>
             </div>
           </div>
 
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :description, class: "form-label" %>
+              <%= form.label :description, "Description du plat",class: "form-label" %>
               <%= form.text_area :description, class: "form-control", rows: 5 %>
             </div>
           </div>
