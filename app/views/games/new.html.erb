@@ -1,47 +1,33 @@
-<% content_for :title, "New game" %>
+<%= form_with(model: @game, local: true) do |form| %>
+  <div class="row">
+    <!-- Colonne de gauche : Titre, Cover et Release Year -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control", required: true %>
+      </div>
 
-<div class="container mt-5">
-  <h1 class="text-center mb-4">Create a New Game</h1>
+      <div class="form-group">
+        <%= form.label :cover, class: "form-label" %>
+        <%= form.text_field :cover, class: "form-control", required: true %>
+      </div>
 
-  <div class="card">
-    <div class="card-body">
-      <%= form_with(model: @game, local: true) do |form| %>
-        <div class="row">
-          <!-- Colonne de gauche : Titre, Cover et Release Year -->
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label :title, class: "form-label" %>
-              <%= form.text_field :title, class: "form-control" %>
-            </div>
+      <div class="form-group">
+        <%= form.label :release_year, class: "form-label" %>
+        <%= form.number_field :release_year, class: "form-control", required: true %>
+      </div>
+    </div>
 
-            <div class="form-group">
-              <%= form.label :cover, class: "form-label" %>
-              <%= form.text_field :cover, class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= form.label :release_year, class: "form-label" %>
-              <%= form.number_field :release_year, class: "form-control" %>
-            </div>
-          </div>
-
-          <!-- Colonne de droite : Description -->
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label :description, class: "form-label" %>
-              <%= form.text_area :description, class: "form-control", rows: 5 %>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group text-center mt-4">
-          <%= form.submit "Create Game", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+    <!-- Colonne de droite : Description -->
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= form.label :description, class: "form-label" %>
+        <%= form.text_area :description, class: "form-control", rows: 5, required: true %>
+      </div>
     </div>
   </div>
 
-  <div class="text-center mt-4">
-    <%= link_to "Back to games", games_path, class: "btn btn-secondary" %>
+  <div class="form-group text-center mt-4">
+    <%= form.submit "Create Game", class: "btn btn-primary" %>
   </div>
-</div>
+<% end %>
