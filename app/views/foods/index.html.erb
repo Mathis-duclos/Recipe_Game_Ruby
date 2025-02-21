@@ -17,6 +17,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= food.name %></h5>
             <p class="card-text"><%= food.description %></p>
+            <p class="card-text"><strong>Game:</strong> <%= food.game.title %></p>
             <%= link_to "Voir ce plat", food, class: "btn btn-primary" %>
           </div>
         </div>
