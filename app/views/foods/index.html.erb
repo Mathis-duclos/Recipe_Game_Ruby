@@ -13,7 +13,7 @@
     <% @foods.each do |food| %>
       <div class="col-sm-6 col-md-4 col-lg-2 mb-4"> <!-- il y a 12 colonnes sur un écran, les cartes utilisent 6 4 ou 2 col, suivant si l écran est petit moyen ou grand -->
         <div class="card">
-          <img src="<%= food.image %>" class="card-img-top" alt="<%= food.name %>">
+          <img src="<%= food.image %>" class="card-img-top object-fit-cover" alt="<%= food.name %>">
           <div class="card-body">
             <h5 class="card-title"><%= food.name %></h5>
             <p class="card-text"><%= food.description %></p>
