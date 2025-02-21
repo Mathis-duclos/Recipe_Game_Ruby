@@ -18,6 +18,13 @@
       <h4><strong>Jeu :</strong></h4>
       <p><%= link_to @food.game.title, @food.game %></p>
 
+      <h4><strong>Recette associée :</strong></h4>
+      <% if @food.recipe %>
+        <p><%= link_to @food.recipe.Name, @food.recipe %></p>
+      <% else %>
+        <p>Aucune recette associée</p>
+      <% end %>
+
       <div class="mt-4">
         <%= link_to "Modifier ce plat", edit_food_path(@food), class: "btn btn-warning" %> 
         <%= link_to "Retour aux plats", foods_path, class: "btn btn-secondary" %>

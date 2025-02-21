@@ -23,7 +23,7 @@
           <div class="col-md-6">
             <div class="form-inputs">
               <%= f.input :description, label: "Description", as: :text, input_html: { class: "form-control", rows: 5 } %>
-              <%= f.association :recipe, label: "Recette", input_html: { class: "form-control" } %>
+              <%= f.input :recipe_id, label: "Recette", as: :select, collection: Recipe.all.map { |r| [r.Name, r.id] }, prompt: "Sélectionner une recette", input_html: { class: "form-control" } %>
             </div>
           </div>
         </div>
