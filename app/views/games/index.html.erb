@@ -16,7 +16,7 @@
           <img src="<%= game.cover %>" class="card-img-top object-fit-cover" alt="<%= game.title %>">
           <div class="card-body">
             <h5 class="card-title"><%= game.title %></h5>
-            <p class="card-text"><%= game.description %></p>
+            <p class="card-text"><%= truncate(game.description, length: 100, omission: '...') %></p>
             <!-- Affichage du nombre de plats -->
             <p class="card-text"><strong>Plats associés :</strong> <%= game.foods.count %></p>
             <%= link_to "Liste des plats", game, class: "btn btn-primary" %>
