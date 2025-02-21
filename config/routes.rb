@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "pages/home"
   resources :foods
   resources :recipes
   resources :games
@@ -14,5 +15,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "foods#index"
+  root "pages#home"
 end

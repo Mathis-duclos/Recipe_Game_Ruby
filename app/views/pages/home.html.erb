@@ -1,0 +1,50 @@
+<style>
+    .card {
+        height: 100%;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 200px; /* Fixe une hauteur uniforme pour les images */
+        object-fit: cover; /* Recadre les images pour un rendu propre */
+    }
+
+</style>
+<div class="container text-center">
+    <h1 class="mt-4">Bienvenue sur Recipe Game</h1>
+    <p class="lead">Découvrez les plats emblématiques des jeux vidéo et apprenez à les cuisiner chez vous !</p>
+    <h2 class="mt-5">Explorer</h2>
+    <p>Parcourez les différentes catégories du site :</p>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1548940740-204726a19be3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHN8ZW58MHx8MHx8fDA%3D" class="card-img-top" alt="Plats icon">
+                <div class="card-body">
+                    <h5 class="card-title">Plats</h5>
+                    <p class="card-text">Découvrez les plats issus des jeux vidéo.</p>
+                    <a href="<%= foods_path %>" class="btn btn-primary">Explorer les Plats</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVjaXBlfGVufDB8fDB8fHww" class="card-img-top" alt="Recettes icon">
+                <div class="card-body">
+                    <h5 class="card-title">Recettes</h5>
+                    <p class="card-text">Reproduisez les recettes inspirées des jeux.</p>
+                    <a href="<%= recipes_path %>" class="btn btn-success">Voir les Recettes</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1635349135526-198161dfd244?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZpZGVvJTIwZ2FtZXMlMjBib3hlc3xlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" alt="Jeux icon">
+                <div class="card-body">
+                    <h5 class="card-title">Jeux</h5>
+                    <p class="card-text">Retrouvez les jeux et leurs références culinaires.</p>
+                    <a href="<%= games_path %>" class="btn btn-danger">Explorer les Jeux</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
